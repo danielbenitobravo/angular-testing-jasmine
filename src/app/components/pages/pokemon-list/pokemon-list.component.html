@@ -1,0 +1,23 @@
+<div class="container">
+  <form class="filters" [formGroup]="filtersForm">
+    <div>
+        <label>
+            <span>Number of results:</span>
+            <input type="number" placeholder="151" formControlName="resultsNumber" />
+        </label>
+        <label>
+            <span>Starting pokemon number:</span>
+            <input type="number" placeholder="0" formControlName="startingPokemon" />
+        </label>
+    </div>
+    <div>
+        <button (click)="filterPokemon()">Search</button>
+        <button (click)="resetFilters()">Clear</button>
+    </div>
+  </form>
+  <div class="list">
+    @for (pokemon of pokemonList; track pokemon.name) {
+        <span>{{ pokemon.name | titlecase }}</span>
+    }
+  </div>
+</div>
